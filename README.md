@@ -36,7 +36,7 @@ Unstage (opción 2): `git restore --staged <file>` Remueve del stage el file esp
 
 `git commit -m "any message"`: Crea el snapshot.
 
-`git checkout -- .`: Reconstruye al ultimo commit.
+`git checkout -- .`: Reconstruye al ultimo commit. (Otra alternativa sería `git reset --hard`)
 
 `git branch`: Muestra las ramas.
 
@@ -45,6 +45,8 @@ Unstage (opción 2): `git restore --staged <file>` Remueve del stage el file esp
 U: Untrack (sin seguimiento)
 A: Added (Agregado al Stage)
 M: Modified (Modificado)
+R: Rename (Se le cambió el nombre al archivo)
+D: Deleted
 
 Si el file está en "M" se puede usar el comando:
 
@@ -86,10 +88,30 @@ OR:
 
 `git commit --amend -m "any message"`: Enmendar mensaje del commit directamente (Amend).
 
-- `git reset --soft HEAD^`: Agregar nuevos cambios al ultimo commit.
+- `git reset --soft HEAD^`: Nos mueve al commit antes de HEAD para que podamos agregar los nuevos cambios al ultimo commit. (Practicamente borra el ultimo commit para que creemos uno nuevo)
 
-- `git reset --soft HEAD^2`: El número despues del acento circunflejo indica el número de commits antes del HEAD.
+- `HEAD^2`: El número despues del acento circunflejo indica el número de commits antes del HEAD.
 
 - Moverme a un commit especifico con el numero del hash del commit:
 
 `git reset --soft <hash>` Ejemplo `git reset --soft b9cd3b5` Nota: `git lg` para conseguir el número hash del commit.
+
+- `git reset --mixed <hash>`: Similar al soft. Saca todo del stage. Conserva los nuevos cambios.
+
+- `git reset --hard <hash>`: Destructivo. Deja todo como estaba en ese punto. Elimina todos los cambios.
+
+# Recuperar
+
+`git reflog`: Lista todos los cambios realizados con los comandos reset y commit. Muy útil para recuperar algun commit borrado con git reset --hard.
+
+Simplemente copiar el hash del punto en que deseamos movernos y hacer el `git reset --hard <hash>`
+
+# Mover archivos
+
+- `git mv <file> <newFileName>`: En caso de querer cambiar el nombre al archivo.
+
+Ejemplo: `git mv ressme.md README.md`: Cambia el nombre del archivo "ressme.md" a "README.md"
+
+# Eliminar
+
+`git rm <file>`
