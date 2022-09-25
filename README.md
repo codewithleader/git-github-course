@@ -36,4 +36,12 @@ Note: to go out: `q`
 
 `git branch -m master main`: Cambia el nombre de la rama master a main.
 
+U: Untrack (sin seguimiento)
+A: Added (Agregado al Stage)
+M: Modified (Modificado)
 
+Si el file está en "M" se puede usar el comando:
+
+`git commit -am "any message"`: Agrega al stage y hace el snapshot en un solo paso pero solo con los archivos previamente añadidos al seguimiento. Los files "U" no son tomados en cuenta con este comando.
+
+`git log`: Ver todos los commits
