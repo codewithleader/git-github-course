@@ -77,3 +77,19 @@ Ejemplo:
 `git diff`: Muestra los cambios en los archivos. (No muestra nada si están en el stage)
 
 `git diff --staged`: Muestra los cambios en los archivos que ya están en el stage.
+
+- Modificar mensaje del ultimo commit:
+
+`git commit --amend`: Abre editor (Nano) para modificar el mensaje.
+
+OR:
+
+`git commit --amend -m "any message"`: Enmendar mensaje del commit directamente (Amend).
+
+- `git reset --soft HEAD^`: Agregar nuevos cambios al ultimo commit.
+
+- `git reset --soft HEAD^2`: El número despues del acento circunflejo indica el número de commits antes del HEAD.
+
+- Moverme a un commit especifico con el numero del hash del commit:
+
+`git reset --soft <hash>` Ejemplo `git reset --soft b9cd3b5` Nota: `git lg` para conseguir el número hash del commit.
