@@ -24,6 +24,8 @@ Note: to go out: `q`
 
 `git add .`: Agrega todos los files al stage.
 
+`git add *.html`: Agrega solo los archivos con extension (HTML o cualquier otra especificada) al stage. Solo los que esten en la raiz. Sinó especificar la ruta `git add js/*.js`
+
 `git status`: Muestra los files en el stage.
 
 `git reset <file>`: Remueve del stage el file especificado.
@@ -45,3 +47,5 @@ Si el file está en "M" se puede usar el comando:
 `git commit -am "any message"`: Agrega al stage y hace el snapshot en un solo paso pero solo con los archivos previamente añadidos al seguimiento. Los files "U" no son tomados en cuenta con este comando.
 
 `git log`: Ver todos los commits
+
+# Git no hace seguimiento de los directorios vacios. Si se desea hacer seguimiento al directorio se le debe agregar el archivo ".gitkeep". Ver ejemplo en la carpeta uploads.
