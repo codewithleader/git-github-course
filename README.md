@@ -197,18 +197,32 @@ Se debe crear tags del tipo "versiones semanticas".
 
 - `git show <tagName>`: Muestra toda la info de un tag (Listar los tags con `git tag` para encontrar el nombre)
 
-# Stash
+# STASH
 
-- `git stash`: Guarda todos los archivos con cambios en una boveda y nos devuelve al ultimo commit.
+Es como una boveda donde se almacenan los cambios temporalmente.
 
-- Es como el `git checkout -- .` pero con la ventaja de que los cambios realizados no se pierden sino que pueden ser recuperados posteriormente.
+- `git stash`: Guarda todos los cambios en una boveda y nos devuelve al ultimo commit.
 
-- WIP: Work In Progress.
+Es como el `git checkout -- .` pero con la ventaja de que los cambios realizados no se pierden sino que pueden ser recuperados posteriormente.
 
-- `git stash list`: Para consultar el hash del stash realizado.
+WIP: Work In Progress.
 
-OR...
+- `git stash save "descriptive name"`: Permite agregar un stash con nombre personalizado (RECOMENDADO)
 
-- `git lg`: Para consultar el hash del stash realizado.
+- `git stash list`: Muestra todos los stash.
 
-- `git stash pop`: Recupera el ultimo stash y hace marge con la rama actual.
+- `git stash list --stat`: Muestra estadisticas de los stash.
+
+- `git stash pop`: Recupera el ultimo stash y hace marge con la rama actual. También borra ese stash.
+
+- `git stash apply stash@{<number>}`: Aplicar un stash especifico (Ejemplo: `stash@{2}`)
+
+APPLY no elimina el stash como el POP.
+
+- `git stash show stash@{<number>}`: Muestra el contenido de un stash especifico.
+
+- `git stash drop`: Elimina el último stash.
+
+- `git stash drop stash@{<number}`: Elimina un stash especifico.
+
+- `git stash clear`: Borra todos los stash.
