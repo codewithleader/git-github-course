@@ -238,9 +238,33 @@ APPLY no elimina el stash como el POP.
 
 ### Rebase interactivo
 
-- `git rebase -i HEAD~<number>`: Entra en modo edición
+- `git rebase -i HEAD~<number>`: Entra en modo edición, el numero muestra una cantidad de commits antes del HEAD (incluyendo al HEAD). Seguir los siguientes pasos:
 
-#### Rebase Squash
+1. Identificar los 2 commits que se desean fusionar.
+
+Ejemplo:
+
+Se desean unir el commit "b8cd0e2" con el commit "0d052c9" porque fue tan minimo el codigo modificado que no es necesario tener 2 commits.
+
+elis@perezmusic ~/Dev/git-github-course (main) $ `git rebase -i HEAD~4`
+```
+pick 49fc325 "my first commit"
+pick 9f6aa51 "login agregado"
+pick b8cd0e2 "landing page agregada"
+pick 0d052c9 "detallito adicional a la landing page"
+```
+
+2. Reemplazar en el ultimo commit la palabra pick por "squash" o simplemente la "s" para usar la abreviación. Y guardar.
+
+```
+pick 49fc325 "my first commit"
+pick 9f6aa51 "login agregado"
+pick b8cd0e2 "landing page agregada"
+s 0d052c9 "detallito adicional a la landing page"
+```
+
+3. Se abrirá otra pantalla de edición para agregar el mensaje al nuevo commit resultante de la fusion. Agregar el mensaje y guardar. Listo.
+
 
 -
 
