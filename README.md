@@ -166,6 +166,7 @@ elis@perezmusic ~/git-course (main) $ git merge chat // Fusiona la rama "chat" a
 - Al hacer el marge si aparece uno o varios conflictos hay que resolverlos todos y luego hacer un nuevo commit. (Los archivos que no presentaron conflictos hacen merge, solo los del conflicto no pasan).
 
 Ejemplo:
+
 1. `git merge chat` // Conflicto en el archivo README.md
 
 2. Resolver el conflicto revisando el archivo README.md decidiendo que lineas dejas y qué quitar.
@@ -187,6 +188,7 @@ Los tags son etiquetas para los commits.
 Se debe crear tags del tipo "versiones semanticas".
 
 ### Release tag:
+
 - `git tag -a v1.0.0 -m "Version 1.0.0 ready"`: Crea etiqueta al commit actual.
 
 - `git tag -a v0.1.0 <hash> -m "Version 0.1.0 ready"`: Crea etiqueta a un commit especifico por medio del hash.
@@ -195,7 +197,18 @@ Se debe crear tags del tipo "versiones semanticas".
 
 - `git show <tagName>`: Muestra toda la info de un tag (Listar los tags con `git tag` para encontrar el nombre)
 
+# Stash
 
+- `git stash`: Guarda todos los archivos con cambios en una boveda y nos devuelve al ultimo commit.
 
+- Es como el `git checkout -- .` pero con la ventaja de que los cambios realizados no se pierden sino que pueden ser recuperados posteriormente.
 
+- WIP: Work In Progress.
 
+- `git stash list`: Para consultar el hash del stash realizado.
+
+OR...
+
+- `git lg`: Para consultar el hash del stash realizado.
+
+- `git stash pop`: Recupera el ultimo stash y hace marge con la rama actual.
