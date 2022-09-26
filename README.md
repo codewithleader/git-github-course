@@ -230,13 +230,16 @@ APPLY no elimina el stash como el POP.
 # REBASE
 
 ### Rebase normal
+
 - elis@perezmusic ~/git-github-course (branch2) $ `git rebase <branch1>`: Estando en la rama "branch2" se hace el rebase a la "branch1" ¿Qué hace esto?
 
 1. Coloca todos los commits de la "branch2" en un espacio temporal.
 2. Hace merge de la rama "branch1" hacia la rama "branch2". (Se agregan todos los commits de la rama "branch1" a la rama "branch2")
 3. Agrega los commit del espacio temporal a la rama "branch2" pero quedando estos commit por encima de todos los commit de la rama "branch1" que se fusionaron en el paso anterior. 🧐
 
-### Rebase interactivo
+### Rebase interactivo - SQUASH
+
+Squash se usa para fusionar 2 commit en un nuevo commit (Reemplazando los 2 commits por el nuevo commit)
 
 - `git rebase -i HEAD~<number>`: Entra en modo edición, el numero muestra una cantidad de commits antes del HEAD (incluyendo al HEAD). Seguir los siguientes pasos:
 
@@ -247,6 +250,7 @@ Ejemplo:
 Se desean unir el commit "b8cd0e2" con el commit "0d052c9" porque fue tan minimo el codigo modificado que no es necesario tener 2 commits.
 
 elis@perezmusic ~/Dev/git-github-course (main) $ `git rebase -i HEAD~4`
+
 ```
 pick 49fc325 "my first commit"
 pick 9f6aa51 "login agregado"
@@ -263,9 +267,85 @@ pick b8cd0e2 "landing page agregada"
 s 0d052c9 "detallito adicional a la landing page"
 ```
 
-3. Se abrirá otra pantalla de edición para agregar el mensaje al nuevo commit resultante de la fusion. Agregar el mensaje y guardar. Listo.
+3. Se abrirá otra pantalla de edición para agregar el mensaje al nuevo commit resultante de la fusion.
 
+Agregamos el mensaje "landing page agregada + el detallito adicional" en la primera linea del documento y listo:
 
--
+```
+landing page agregada + el detallito adicional
+# This is a combination of 2 commits.
+# This is the 1st commit message:
 
+landing page agregada
 
+# This is the commit message #2:
+
+detallito adicional a la landing page
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date: Mon Sep 26 09:34:46 2022 -0500
+#
+# interactive rebase in progress;
+# Last commands done (4 commands done):
+#   pick b8cd0e2 landing page agregada
+#   squash 0d052c9 detallito adicional a la landing page
+# No commands remaining.
+# You are currently rebasing branch 'main' on 'c9sj0e3'
+#
+# Changes to be committed:
+```
+
+### Rebase - REWORD
+
+Reword se usa para editar el mensaje de un commit.
+
+Ejemplo:
+
+- `git rebase -i HEAD~4`: Entra en modo edición, el numero muestra una cantidad de commits antes del HEAD (incluyendo al HEAD). Seguir los siguientes pasos:
+
+1. Identificar el commit que se desea modificar el mensaje.
+
+```
+pick 25s9dow "my first commit"
+pick 03dj283 "segundo commit"
+pick y8hc0e5 "tercer commit"
+pick a8s9dk2 "quinto commit"
+```
+
+2. Reemplazar la palabra "pick" por "reword" o simplemente "r" y guardar.
+
+```
+pick 25s9dow "my first commit"
+pick 03dj283 "segundo commit"
+pick y8hc0e5 "tercer commit"
+r a8s9dk2 "quinto commit"
+```
+
+3. Se abre el editor. Pulsar la tecla A para empezar a editar el mensaje.
+
+Reemplazar "quinto commit"
+
+```
+quinto commit
+# Please enter the commit message for your changes...
+# ...
+```
+
+Por "cuarto commit" y guardar.
+
+```
+cuarto commit
+# Please enter the commit message for your changes...
+# ...
+```
+
+4. Verificar con `git lg` el nuevo mensaje del commit y Listo.
+
+```
+* a8s9dk2 - (2 hours ago) cuarto commit - Elis Antonio Perez (HEAD -> main)
+* y8hc0e5 - (2 hours ago) tercer commit - Elis Antonio Perez
+* 03dj283 - (2 hours ago) segundo commit - Elis Antonio Perez
+* 25s9dow - (3 hours ago) my first commit - Elis Antonio Perez
+```
