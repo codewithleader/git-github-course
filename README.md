@@ -213,16 +213,35 @@ WIP: Work In Progress.
 
 - `git stash list --stat`: Muestra estadisticas de los stash.
 
+- `git stash show stash@{<number>}`: Muestra el contenido de un stash especifico.
+
 - `git stash pop`: Recupera el ultimo stash y hace marge con la rama actual. También borra ese stash.
 
 - `git stash apply stash@{<number>}`: Aplicar un stash especifico (Ejemplo: `stash@{2}`)
 
 APPLY no elimina el stash como el POP.
 
-- `git stash show stash@{<number>}`: Muestra el contenido de un stash especifico.
-
 - `git stash drop`: Elimina el último stash.
 
 - `git stash drop stash@{<number}`: Elimina un stash especifico.
 
 - `git stash clear`: Borra todos los stash.
+
+# REBASE
+
+### Rebase normal
+- elis@perezmusic ~/git-github-course (branch2) $ `git rebase <branch1>`: Estando en la rama "branch2" se hace el rebase a la "branch1" ¿Qué hace esto?
+
+1. Coloca todos los commits de la "branch2" en un espacio temporal.
+2. Hace merge de la rama "branch1" hacia la rama "branch2". (Se agregan todos los commits de la rama "branch1" a la rama "branch2")
+3. Agrega los commit del espacio temporal a la rama "branch2" pero quedando estos commit por encima de todos los commit de la rama "branch1" que se fusionaron en el paso anterior. 🧐
+
+### Rebase interactivo
+
+- `git rebase -i HEAD~<number>`: Entra en modo edición
+
+#### Rebase Squash
+
+-
+
+
