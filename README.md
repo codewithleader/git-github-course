@@ -18,6 +18,22 @@ Note: to go out: `q`
 
 - `git config --global -e`: Muestra toda la configuración.
 
+# ALIAS
+
+- `git config --global alias.<name> "<command and labels>"`: Crea un alias.
+
+Ejemplo:
+
+- `git config --global alias.s "status --short"`: Ahora con solo escribir `git s` ejecuta el comando `git status --short`
+
+## Alias importantes
+
+- Alias para Log: `git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"`
+
+- Alias para Status: `git config --global alias.s status --short`
+
+- Alternativa útil de alias para status: `git config --global alias.s status -sb`
+
 # Trabajando con repositorios:
 
 - `git init`: Inicia repositorio local.
@@ -34,6 +50,10 @@ Note: to go out: `q`
 
 - Unstage (opción 2): `git restore --staged <file>` Remueve del stage el file especificado.
 
+## Seguimiento de Directorios vacíos
+
+- `.gitkeep`: Git no hace seguimiento de los directorios vacios. Si se desea hacer seguimiento al directorio se le debe agregar el archivo `.gitkeep`. Ver ejemplo en la carpeta uploads.
+
 ## Status
 
 - `git status`: Muestra los files en el stage.
@@ -49,37 +69,11 @@ Note: to go out: `q`
 
 - `git commit -m "any message"`: Crea el snapshot.
 
-- `git checkout -- .`: Reconstruye al ultimo commit. (Otra alternativa sería `git reset --hard`)
-
-- `git branch`: Muestra las ramas.
-
-- `git branch -m master main`: Cambia el nombre de la rama master a main.
-
 Si el file tiene el status en "M" se puede usar el comando:
 
 - `git commit -am "any message"`: Agrega al stage y hace el snapshot en un solo paso pero solo con los archivos previamente añadidos al seguimiento. Los files "U" no son tomados en cuenta con este comando.
 
 - `git log`: Ver todos los commits
-
-# Directorios
-
-- `.gitkeep`: Git no hace seguimiento de los directorios vacios. Si se desea hacer seguimiento al directorio se le debe agregar el archivo `.gitkeep`. Ver ejemplo en la carpeta uploads.
-
-# ALIAS
-
-- `git config --global alias.<name> "<command and labels>"`: Crea un alias.
-
-Ejemplo:
-
-- `git config --global alias.s "status --short"`: Ahora con solo escribir `git s` ejecuta el comando `git status --short`
-
-## Alias importantes
-
-- Alias para Log: `git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"`
-
-- Alias para Status: `git config --global alias.s status --short`
-
-- Alternativa útil de alias para status: `git config --global alias.s status -sb`
 
 # Trabajando con los Commits
 
@@ -121,9 +115,11 @@ Simplemente copiar el hash del punto en que deseamos movernos y hacer el `git re
 
 Ejemplo: `git mv ressme.md README.md`: Cambia el nombre del archivo "ressme.md" a "README.md"
 
-# Eliminar
+# Eliminar archivos y directorios
 
-`git rm <file>` or PATH.
+`git rm <file>` or PATH. Ejemplo: `git rm README.md` or `git rm js/app.js`
+
+`git rm -r <directory>` Ejemplo: `git rm -r css/` eliminaría el directorio "css/" y todo su contenido.
 
 # Ignorar archivos o carpetas
 
@@ -136,6 +132,14 @@ Ejemplo: `git mv ressme.md README.md`: Cambia el nombre del archivo "ressme.md" 
 - `git checkout <name>`: Cambia a la rama especificada.
 
 - PREFERIDO: `git checkout -b <name>`: Crea nueva rama y nos cambia a ella (Dos pasos en uno 🤓)
+
+- `git checkout -- .`: Reconstruye todos los archivos al ultimo commit.
+
+- `git checkout -- <file>`: Reconstruye solo el archivo especificado al ultimo commit.
+
+- `git branch`: Muestra todas las ramas.
+
+- `git branch -m master main`: Cambia el nombre de la rama "master" a "main".
 
 ## Eliminar rama
 
@@ -181,7 +185,9 @@ Los tags son etiquetas para los commits.
 
 - `git tag`: Listar los tags.
 
-- `git tag -d <name>`: Elimina la etiqueta.
+- `git show <name>`: Muestra toda la info de un tag.
+
+- `git tag -d <name>`: Elimina la tag.
 
 ## Consideraciones para nombrar las etiquetas:
 
@@ -189,25 +195,23 @@ Se debe crear tags del tipo "versiones semanticas".
 
 ### Release tag:
 
-- `git tag -a v1.0.0 -m "Version 1.0.0 ready"`: Crea etiqueta al commit actual.
+- `git tag -a v1.0.0alpha -m "Version 1.0.0 ready"`: Crea etiqueta al commit actual.
 
 - `git tag -a v0.1.0 <hash> -m "Version 0.1.0 ready"`: Crea etiqueta a un commit especifico por medio del hash.
 
 `-a`: Annotated. `-m`: Message.
 
-- `git show <tagName>`: Muestra toda la info de un tag (Listar los tags con `git tag` para encontrar el nombre)
-
 # STASH
 
 Es como una boveda donde se almacenan los cambios temporalmente.
 
-- `git stash`: Guarda todos los cambios en una boveda y nos devuelve al ultimo commit.
+- `git stash save "descriptive name"`: Permite agregar un stash con nombre personalizado (RECOMENDADO)
+
+- `git stash`: Guarda todos los cambios en una boveda y nos devuelve al ultimo commit (No Recomendado).
 
 Es como el `git checkout -- .` pero con la ventaja de que los cambios realizados no se pierden sino que pueden ser recuperados posteriormente.
 
 WIP: Work In Progress.
-
-- `git stash save "descriptive name"`: Permite agregar un stash con nombre personalizado (RECOMENDADO)
 
 - `git stash list`: Muestra todos los stash.
 
@@ -349,3 +353,5 @@ cuarto commit
 * 03dj283 - (2 hours ago) segundo commit - Elis Antonio Perez
 * 25s9dow - (3 hours ago) my first commit - Elis Antonio Perez
 ```
+
+### Rebase - EDIT
