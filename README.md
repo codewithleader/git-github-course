@@ -355,3 +355,35 @@ cuarto commit
 ```
 
 ### Rebase - EDIT
+
+Se usa para separar un commit.
+
+`git rebase -i HEAD~2`
+
+1. Identificar el commit que se desea hacer la división y reemplazar "pick" por "edit" o simplemente "e"
+
+```
+pick 9ds9fo3 "my first commit"
+e 3lkjd30 "commit con muchos cambios"
+```
+
+2. No pasa nada mas pero es porque se ha entrado al modo de REBASE MANUAL "interactive rebase in progress" (Verificar con git status si se desea)
+
+Para salir del modo REBASE MANUAL primero se deben hacer los commits que se desean hacer.
+
+3. `git reset HEAD^`: Baja del stage el ultimo commit.
+
+4. `git add <file1>` => `git commit -m "commit con un cambio"`
+
+5. `git add <file2>` => `git commit -m "commit con el otro cambio"`
+
+6. `git rebase --continue`: Termina el proceso y sale del REBASE.
+
+7. `git lg` Veremos los nuevos cambios, el commit viejo ha sido reemplazado por 2 commits:
+
+```
+* asdf0eh - (2 hours ago) commit con el otro cambio - Elis Antonio Perez (HEAD -> main)
+* 63gj245 - (2 hours ago) commit con un cambio - Elis Antonio Perez
+* 9ds9fo3 - (2 hours ago) my first commit - Elis Antonio Perez
+```
+
