@@ -427,4 +427,55 @@ Si solo se descarga el ZIP no hará la descarga de la carpeta .git, entonces no 
 
 # CONFLICTOS al hacer PULL
 
-- `git config pull.rebase true`
+El problema:
+
+```bash
+elis@perezmusic ~/git-github-course (main) $ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 706 bytes | 353.00 KiB/s, done.
+From https://github.com/ElisPerez/git-github-course
+   7326a42..3b867d3  main       -> origin/main
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+```
+
+## Resolver conflicto
+
+La solucion será deshacer el commit en local y crear un nuevo commit con la fusion de ambos cambios usando el `REBASE INTERACTIVO`. El resultado al final será que ingresa al local el commit remoto sin cambios, se añade un nuevo commit con los cambios que se eligieron de los commits en conflicto y se sube al remoto el nuevo commit con los conflictos resueltos.
+
+Pasos:
+
+1. `git config pull.rebase true`: Configura el rebase al hacer el pull.
+
+2. `git pull`: Entrará en modo de resolución de conflictos y decidimos que cambios dejar.
+
+3. `git add .`: Agrega al stage los cambios elegidos.
+
+4. `git commit -m "conflicto resuelto"`: Crea un nuevo commit que se enviará al remoto. (El commit del remoto que tuvo conflicto no es modificado sinó que queda debajo de este último)
+
+5. `git rebase --continue`: para finalizar el rebase.
+
+6. Terminar con `git push`: para agregar el nuevo commit al remoto.
+
+```bash
+elis@perezmusic ~/git-github-course (main) $ git lg
+* 2a4d6d0 - (4 minutes ago) conflicto resuelto - Elis Antonio Perez (HEAD -> main, origin/main)
+* 3b867d3 - (17 minutes ago) Conflicto desde GitHub creado - Elis Antonio Perez
+```
+
+Listo. 😱 🤯
+
