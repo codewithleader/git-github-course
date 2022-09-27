@@ -463,13 +463,29 @@ Pasos:
 
 2. `git pull`: Entrará en modo de resolución de conflictos y decidimos que cambios dejar.
 
-3. `git add .`: Agrega al stage los cambios elegidos.
+Mostrará el siguiente mensaje indicando que debemos resolver todos los conflictos manualmente, hacer el commit y terminar el rebase.
 
-4. `git commit -m "conflicto resuelto"`: Crea un nuevo commit que se enviará al remoto. (El commit del remoto que tuvo conflicto no es modificado sinó que queda debajo de este último)
+```bash
+elis@perezmusic ~/git-github-course (main) $ git pull
+Auto-merging probando-rebase.md
+CONFLICT (content): Merge conflict in probando-rebase.md
+error: could not apply 89e3238... creando conflicto desde local
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 89e3238... creando conflicto desde local
+```
 
-5. `git rebase --continue`: para finalizar el rebase.
+3. Modificar cada archivo en conflicto y guardar cambios.
 
-6. Terminar con `git push`: para agregar el nuevo commit al remoto.
+4. `git add .`: Agrega al stage los cambios elegidos.
+
+5. `git commit -m "conflicto resuelto"`: Crea un nuevo commit.
+
+6. `git rebase --continue`: para finalizar el REBASE.
+
+7. Terminar con `git push`: para agregar el nuevo commit al remoto. (El commit del remoto que tuvo conflicto no es modificado sinó que queda debajo de este último)
 
 ```bash
 elis@perezmusic ~/git-github-course (main) $ git lg
