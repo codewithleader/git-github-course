@@ -391,13 +391,13 @@ Para salir del modo REBASE MANUAL primero se deben hacer los commits que se dese
 
 Subir repositorio local a repositorio remoto con REMOTE.
 
-- `git remote add origin <url>`
+- `git remote add origin <url>`: Enlaza tu repositorio local con el remoto.
 
 - `git branch -M main`: Forzar cambio de nombre de la rama a "main"
 
 ## PUSH
 
-- `git push -u origin main`:
+- `git push -u origin main`: Despliega todos los cambios de tu repositorio local al remoto.
 
 La "-u" establece la rama main por defecto para los proximos `git push`
 
@@ -411,6 +411,20 @@ Los tags no se suben automaticamente despues de hacer el 'git push', hay que sub
 
 - `git pull`: Si no hay conflicto jala todos los cambios del repositorio remoto al local.
 
-Nota: En algunas versiones de GIT si es primera vez en hacer PULL aparecerá un mensaje de ADVERTENCIA indicando que debemos hacer una configuración adicional. PERO igualmente hace el pull si no hay conflictos. Seguir los siguientes pasos para configurar:
+Nota: En algunas versiones de GIT si es primera vez en hacer PULL aparecerá un mensaje de ADVERTENCIA indicando que debemos hacer una configuración adicional. PERO igualmente hace el pull si no hay conflictos. Ejecutar el siguiente comando para configurar el Fast Forward Only:
 
-1. `git config --global pull.ff only`: Fast Forward Only.
+- `git config --global pull.ff only`: Fast Forward Only.
+
+## VER repositorios remotos
+
+- `git remote -v`: Muestra una lista de todos los repositorios remotos enlazados a tu repositorio local.
+
+## CLONAR
+
+- `git clone <url>`: Clona el repositorio remoto a una copia local con toda la info del control de seguimiento git (todos los commits).
+
+Si solo se descarga el ZIP no hará la descarga de la carpeta .git, entonces no tendrá la info de todos los commit.
+
+# CONFLICTOS al hacer PULL
+
+- `git config pull.rebase true`
