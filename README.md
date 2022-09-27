@@ -413,7 +413,7 @@ Los tags no se suben automaticamente despues de hacer el 'git push', hay que sub
 
 Nota: En algunas versiones de GIT si es primera vez en hacer PULL aparecerá un mensaje de ADVERTENCIA indicando que debemos hacer una configuración adicional. PERO igualmente hace el pull si no hay conflictos. Ejecutar el siguiente comando para configurar el Fast Forward Only:
 
-- `git config --global pull.ff only`: Fast Forward Only.
+- `git config --global pull.ff only`: Fast Forward Only. (Cambiaremos esta config más adelante en la resolución de conflictos)
 
 ## VER repositorios remotos
 
@@ -459,7 +459,7 @@ La solucion será deshacer el commit en local y crear un nuevo commit con la fus
 
 Pasos:
 
-1. `git config pull.rebase true`: Configura el rebase al hacer el pull.
+1. `git config --global pull.rebase true`: Configura el rebase al hacer el pull. Intenta hacer Fast Forward PERO si hay conflicto entra en REBASE INTERACTIVO.
 
 2. `git pull`: Entrará en modo de resolución de conflictos y decidimos que cambios dejar.
 
