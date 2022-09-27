@@ -409,4 +409,8 @@ Los tags no se suben automaticamente despues de hacer el 'git push', hay que sub
 
 ## PULL
 
-- `git pull`: Si no hay conflicto jala todos los cambios del repositorio remoto al local. Si es primera vez aparecerá un mensaje de ADVERTENCIA indicando que debemos hacer una configuración adicional. PERO igualmente hace el pull si no hay conflictos.
+- `git pull`: Si no hay conflicto jala todos los cambios del repositorio remoto al local.
+
+Nota: En algunas versiones de GIT si es primera vez en hacer PULL aparecerá un mensaje de ADVERTENCIA indicando que debemos hacer una configuración adicional. PERO igualmente hace el pull si no hay conflictos. Seguir los siguientes pasos para configurar:
+
+1. `git config --global pull.ff only`: Fast Forward Only.
