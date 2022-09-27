@@ -5,3 +5,4 @@
 - Opcion desde GitHub.
 - Desde GitHub 2.
 - Creando conflicto desde GitHub
+- Desde Local para generar conflicto
