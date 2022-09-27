@@ -356,15 +356,15 @@ cuarto commit
 
 ### Rebase - EDIT
 
-Se usa para separar un commit.
+Se usa para SEPARAR un commit.
 
 `git rebase -i HEAD~2`
 
-1. Identificar el commit que se desea hacer la división y reemplazar "pick" por "edit" o simplemente "e"
+1. Identificar el commit que se desea hacer la separación y reemplazar "pick" por "edit" o simplemente "e"
 
 ```
 pick 9ds9fo3 "my first commit"
-e 3lkjd30 "commit con muchos cambios"
+e 3lkjd30 "file1 y file2"
 ```
 
 2. No pasa nada mas pero es porque se ha entrado al modo de REBASE MANUAL "interactive rebase in progress" (Verificar con git status si se desea)
@@ -373,17 +373,40 @@ Para salir del modo REBASE MANUAL primero se deben hacer los commits que se dese
 
 3. `git reset HEAD^`: Baja del stage el ultimo commit.
 
-4. `git add <file1>` => `git commit -m "commit con un cambio"`
+4. `git add <file1>` => `git commit -m "file1"`
 
-5. `git add <file2>` => `git commit -m "commit con el otro cambio"`
+5. `git add <file2>` => `git commit -m "file2"`
 
 6. `git rebase --continue`: Termina el proceso y sale del REBASE.
 
-7. `git lg` Veremos los nuevos cambios, el commit viejo ha sido reemplazado por 2 commits:
+7. `git lg` Veremos los nuevos cambios, el commit viejo ha sido separado en 2 nuevos commits:
 
 ```
-* asdf0eh - (2 hours ago) commit con el otro cambio - Elis Antonio Perez (HEAD -> main)
-* 63gj245 - (2 hours ago) commit con un cambio - Elis Antonio Perez
+* asdf0eh - (2 hours ago) file2 - Elis Antonio Perez (HEAD -> main)
+* 63gj245 - (2 hours ago) file1 - Elis Antonio Perez
 * 9ds9fo3 - (2 hours ago) my first commit - Elis Antonio Perez
 ```
 
+# Repositorios REMOTOS
+
+Subir repositorio local a repositorio remoto con REMOTE.
+
+- `git remote add origin <url>`
+
+- `git branch -M main`: Forzar cambio de nombre de la rama a "main"
+
+## PUSH
+
+- `git push -u origin main`:
+
+La "-u" establece la rama main por defecto para los proximos `git push`
+
+## Subir los tags
+
+Los tags no se suben automaticamente despues de hacer el 'git push', hay que subirlos después con el comando:
+
+- `git push --tags`: Sube todos los tags al repositorio remoto.
+
+## PULL
+
+- `git pull`: Si no hay conflicto jala todos los cambios del repositorio remoto al local. Si es primera vez aparecerá un mensaje de ADVERTENCIA indicando que debemos hacer una configuración adicional. PERO igualmente hace el pull si no hay conflictos.
