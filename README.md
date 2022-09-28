@@ -581,9 +581,13 @@ upstream  https://github.com/ElisPerez/otro-repo-remote.git (push)
 
 5. En GitHub editar el tag para crear el RELEASE TAG.
 
+# GITHUB - Cosas de GITHUB
+
 # ISSUES: Problemas e inquietudes.
 
 Un issue es un tema o problema importante para el debate o la discusión.
+
+Los Issues integran el seguimiento de tareas ligeras en su repositorio. Mantenga los proyectos al día con etiquetas de Issues e Milestones, y haga referencia a ellos en los mensajes de commits.
 
 ## Uso de issues
 
@@ -653,6 +657,8 @@ GitHub nos permite crear una plantilla personalizada para que cuando alguien des
 - Elegir una plantilla: Bug Report, Feature Request ó Custom Template.
 - Editar plantilla -> Propose Changes -> Commit changes.
 
+Nota: En la edición de la plantilla podemos agregar una `label` por defecto (RECOMENDADO)
+
 # MILESTONES: Hitos.
 
 Un mileston es una acción o evento que marca un cambio significativo o una etapa importante en el desarrollo de nuestra aplicación.
@@ -661,3 +667,24 @@ Un mileston es una acción o evento que marca un cambio significativo o una etap
 
 Use `Milestones` para `CREAR COLECCIONES DE ISSUES Y PULL REQUESTS` para un lanzamiento o proyecto en particular.
 
+Ejemplo:
+
+- Se espera tener lista la nueva version de año nuevo para 1 enero del 2023.
+- Se crea el Milestone "Lanzamiento enero 2023". Cada issue o PR que tenga que ver con ese acontecimiento se asigna a ese Milestone.
+- Se crea el issue "implementar dark theme" y en el panel izquierdo buscamos la ficha Milestones y seleccionamos "Lanzamiento enero 2023".
+- ¡Ya tenemos nuestro primer issue para trabajar y solucionar antes de hacer el lanzamiento!.
+
+# GitHub Wiki
+
+Permite crear paginas para la documentación del repositorio.
+
+# GitHub Pages
+
+Permite desplegar tu proyecto en un servidor gratuito.
+
+- Eliges que rama usar y desplegará tu repositorio. Genera un link que puedes compartir a tus amigos.
+- Solo funciona con archivos HTML, css, Javascript. NodeJS, Java y otros no son soportados.
+
+# GitHub Project
+
+Los proyectos en GitHub lo ayudan a organizar y priorizar su trabajo. Puede crear proyectos para trabajos de características específicas, hojas de ruta integrales o incluso listas de verificación de lanzamiento
