@@ -623,7 +623,7 @@ Etiquetas comunes:
 
 ## Referencia de los ISSUES
 
-- GitHub lleva el control de los issues por nosotros asignandole un `#` más un numero único a cada issue. El número asignado nunca cambiará. 
+- GitHub lleva el control de los issues por nosotros asignandole un `#` más un numero único a cada issue. El número asignado nunca cambiará.
 
 Ejemplo: Si creamos 3 issues (serian #1, #2 y #3) y eliminamos el segundo issue (#2), al crear un nuevo issue no tomará el numero #2 ya que este hace referencia al issue que fue borrado, entonces el nuevo issue tomaría el #4 y quedarian asi: #1, #3, #4. Dejando en claro que el #2 eliminado, no se le asignará a ningun otro issue en toda la historia de nuestro repositorio.
 
@@ -685,6 +685,15 @@ Permite desplegar tu proyecto en un servidor gratuito.
 - Eliges que rama usar y desplegará tu repositorio. Genera un link que puedes compartir a tus amigos.
 - Solo funciona con archivos HTML, css, Javascript. NodeJS, Java y otros no son soportados.
 
-# GitHub Project
+# GitHub Projects
 
 Los proyectos en GitHub lo ayudan a organizar y priorizar su trabajo. Puede crear proyectos para trabajos de características específicas, hojas de ruta integrales o incluso listas de verificación de lanzamiento
+
+## ¿Como crear un Proyecto?
+
+- Ir al repositorio en GitHub
+- Pestaña Projects
+- Elegir plantilla None (Recomendado)
+- Agregar las columnas
+- Agregar las Cards (Que son los ISSUES)
+- Está genial 🚀
