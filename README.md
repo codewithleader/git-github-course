@@ -1,8 +1,8 @@
-# Curso de Git
+# Curso de Git & GitHub
 
-- `git --version`
+- `git --version`: Verifica si git está instalado y muestra la versión.
 
-- `git help` OR `git --help`
+- `git help` OR `git --help`: Ayuda.
 
 - `git help <commandName>` Ex: `git help commit` OR `git --help commit` It's the same help or --help
 
@@ -251,11 +251,13 @@ APPLY no elimina el stash como el POP.
 
 ### Rebase interactivo - SQUASH
 
-Squash se usa para fusionar 2 commit en un nuevo commit (Reemplazando los 2 commits por el nuevo commit)
+Fusione todos los commits en un solo commit.
+
+Squash se usa para fusionar 2 o más commit en un nuevo commit (Reemplazando los commits por el nuevo commit)
 
 - `git rebase -i HEAD~<number>`: Entra en modo edición, el numero muestra una cantidad de commits antes del HEAD (incluyendo al HEAD). Seguir los siguientes pasos:
 
-1. Identificar los 2 commits que se desean fusionar.
+1. Identificar los commits que se desean fusionar.
 
 Ejemplo:
 
@@ -685,6 +687,13 @@ Permite desplegar tu proyecto en un servidor gratuito.
 - Eliges que rama usar y desplegará tu repositorio. Genera un link que puedes compartir a tus amigos.
 - Solo funciona con archivos HTML, css, Javascript. NodeJS, Java y otros no son soportados.
 
+## Página especial:
+
+Puedes crear un repositorio especial para tu perfil de CV.
+
+1. Crea un nuevo repositorio y lo nombras con la siguiente estructura: `<username>.github.io`
+2. Crear tus archivos o elegir un Template.
+
 # GitHub Projects
 
 Los proyectos en GitHub lo ayudan a organizar y priorizar su trabajo. Puede crear proyectos para trabajos de características específicas, hojas de ruta integrales o incluso listas de verificación de lanzamiento
@@ -697,3 +706,10 @@ Los proyectos en GitHub lo ayudan a organizar y priorizar su trabajo. Puede crea
 - Agregar las columnas
 - Agregar las Cards (Que son los ISSUES)
 - Está genial 🚀
+
+# INSIGHTS: Perspectivas
+
+Estadisticas y actividad de tu repositorio.
+
+- Puedes ver cuantos usuarios le han hecho FORK.
+- Graficos de actividad (Commits, pull request...)
