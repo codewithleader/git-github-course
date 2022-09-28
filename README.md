@@ -515,7 +515,7 @@ Ejemplo: En local se tienen 3 commits y en remoto se añadieron 2 commits mas. A
 
 Un Fork es una división del codigo a una nueva rama del tipo repositorio. Cada repositorio creado con Fork es una rama más del repositorio original.
 
-# PULL REQUESTS
+# PULL REQUESTS (PR)
 
 Consiste en hacer una solicitud de unión a la rama 'main'. Se usa cuando no tenemos total acceso a un repositorio.
 
@@ -589,9 +589,11 @@ Un issue es un tema o problema importante para el debate o la discusión.
 
 - Los issues son usados mayormente para hacer preguntas o solicitar `features` a nuestra aplicación o a la de alguien más.
 
-Ejemplo: Estamos trabajando en la ultima version de REACT JS y notamos un problema, nos dirijimos al repositorio oficial de React en GitHub, click en la pestaña ISSUES, procedemos a escribir el mensaje del issue comentando cual es el fallo con los detalles que creamos pertinentes, elegimos un `label` adecuado con nuestro problema y CREAMOS EL ISSUE. Los muchachos de React reciben un mensaje, reparan en dos minutos el problema, lanzan una nueva version, te dan las gracias por tu aporte y te contratan para una nueva version del software. 😎
+Ejemplo: Estamos por iniciar una nueva app en la ultima version de REACT JS y notamos un problema al hacer la instalación, nos dirijimos al repositorio oficial de React en GitHub, click en la pestaña ISSUES, procedemos a escribir el mensaje del issue comentando cual es el fallo con los detalles que creamos pertinentes, elegimos un `label` adecuado con nuestro problema y CREAMOS EL ISSUE. Los muchachos de React reciben un mensaje, reparan en dos minutos el problema, lanzan una nueva version, te dan las gracias por tu aporte y te contratan para una nueva version del software. 😎
 
-- Etiqueta problemas y solicita cambios para nuevos colaboradores, GitHub ayudará a los posibles contribuyentes a descubrir problemas etiquetados con un buen `issue`.
+- Etiqueta problemas y solicita cambios a tu equipo o nuevos colaboradores, GitHub ayudará a los posibles contribuyentes a descubrir problemas con un buen `label`.
+
+## Labels de issues
 
 Etiquetas comunes:
 
@@ -617,13 +619,39 @@ Etiquetas comunes:
 
 ## Referencia de los ISSUES
 
-- GitHub lleva el control de los issues por nosotros asignandole un `#` más un numero único a cada issue.
+- GitHub lleva el control de los issues por nosotros asignandole un `#` más un numero único a cada issue. El número asignado nunca cambiará. 
 
-Ejemplo: `#1` hace referencia al primer issue realizado. (no se puede modificar el número)
+Ejemplo: Si creamos 3 issues (serian #1, #2 y #3) y eliminamos el segundo issue (#2), al crear un nuevo issue no tomará el numero #2 ya que este hace referencia al issue que fue borrado, entonces el nuevo issue tomaría el #4 y quedarian asi: #1, #3, #4. Dejando en claro que el #2 eliminado, no se le asignará a ningun otro issue en toda la historia de nuestro repositorio.
 
 - Estas referencias podemos usarlas al hacer comentarios para que se cree un enlace hacia ese issue en particular.
 
 Ejemplo de comentario: "@ElisPerez por favor revisa los issues #3 y #7, y realiza los cambios respectivos"
+
+## CERRAR ISSUE MEDIANTE UN COMMIT 🤯
+
+- `git commit -am "Fixes #1: Reparado el problema de este issue"`: En el mensaje del commit podemos agregar la PALABRA CLAVE `Fixes` seguido del número de referencia al issue para hacer el cierre del issue automáticamente.
+
+### PALABRAS CLAVES <!-- TODO: Falta el comentario a cada una -->
+
+- Close: <!-- TODO: -->
+- Closes: <!-- TODO: -->
+- Closed: <!-- TODO: -->
+- Fix: <!-- TODO: -->
+- Fixes: <!-- TODO: -->
+- Fixed: <!-- TODO: -->
+- Resolve: <!-- TODO: -->
+- Resolves: <!-- TODO: -->
+- Resolved: <!-- TODO: -->
+
+Más info en la doc oficial: [Link](https://docs.github.com/es/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)
+
+## ISSUES TEMPLATE
+
+GitHub nos permite crear una plantilla personalizada para que cuando alguien desee hacer un issue tenga la opción de elegir la plantilla que le cargará todo un formulario que debe llenar con la info que nosotros deseamos que nos aporte para poder darle solución a ese issue.
+
+- Ir a configuraciones -> Caracteristicas -> Issues -> Set Up Template.
+- Elegir una plantilla: Bug Report, Feature Request ó Custom Template.
+- Editar plantilla -> Propose Changes -> Commit changes.
 
 # MILESTONES: Hitos.
 
@@ -632,3 +660,4 @@ Un mileston es una acción o evento que marca un cambio significativo o una etap
 ## Uso de milestones
 
 Use `Milestones` para `CREAR COLECCIONES DE ISSUES Y PULL REQUESTS` para un lanzamiento o proyecto en particular.
+
