@@ -580,3 +580,55 @@ upstream  https://github.com/ElisPerez/otro-repo-remote.git (push)
 4. `git push --tags`: Sube el tag al remoto.
 
 5. En GitHub editar el tag para crear el RELEASE TAG.
+
+# ISSUES: Problemas e inquietudes.
+
+Un issue es un tema o problema importante para el debate o la discusión.
+
+## Uso de issues
+
+- Los issues son usados mayormente para hacer preguntas o solicitar `features` a nuestra aplicación o a la de alguien más.
+
+Ejemplo: Estamos trabajando en la ultima version de REACT JS y notamos un problema, nos dirijimos al repositorio oficial de React en GitHub, click en la pestaña ISSUES, procedemos a escribir el mensaje del issue comentando cual es el fallo con los detalles que creamos pertinentes, elegimos un `label` adecuado con nuestro problema y CREAMOS EL ISSUE. Los muchachos de React reciben un mensaje, reparan en dos minutos el problema, lanzan una nueva version, te dan las gracias por tu aporte y te contratan para una nueva version del software. 😎
+
+- Etiqueta problemas y solicita cambios para nuevos colaboradores, GitHub ayudará a los posibles contribuyentes a descubrir problemas etiquetados con un buen `issue`.
+
+Etiquetas comunes:
+
+- `bug`: Algo no funciona.
+
+- `documentation`: Mejoras o adiciones a la documentación.
+
+- `duplicate`: Este problema o solicitud de extracción ya existe.
+
+- `enhancement`: Nueva función o solicitud.
+
+- `good first issue`: Bueno para los recién llegados.
+
+- `help wanted`: Se necesita atención adicional.
+
+- `invalid`: Esto no parece correcto.
+
+- `question`: Se solicita más información.
+
+- `wontfix`: Esto no se trabajará.
+
+- Sientase libre de crear más etiquetas...
+
+## Referencia de los ISSUES
+
+- GitHub lleva el control de los issues por nosotros asignandole un `#` más un numero único a cada issue.
+
+Ejemplo: `#1` hace referencia al primer issue realizado. (no se puede modificar el número)
+
+- Estas referencias podemos usarlas al hacer comentarios para que se cree un enlace hacia ese issue en particular.
+
+Ejemplo de comentario: "@ElisPerez por favor revisa los issues #3 y #7, y realiza los cambios respectivos"
+
+# MILESTONES: Hitos.
+
+Un mileston es una acción o evento que marca un cambio significativo o una etapa importante en el desarrollo de nuestra aplicación.
+
+## Uso de milestones
+
+Use `Milestones` para `CREAR COLECCIONES DE ISSUES Y PULL REQUESTS` para un lanzamiento o proyecto en particular.
