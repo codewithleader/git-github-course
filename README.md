@@ -18,6 +18,8 @@ Note: to go out: `q`
 
 - `git config --global -e`: Muestra toda la configuración.
 
+Para salir del editor en Mac: `Esc + :wq!`
+
 # ALIAS
 
 - `git config --global alias.<name> "<command and labels>"`: Crea un alias.
@@ -137,7 +139,9 @@ Ejemplo: `git mv ressme.md README.md`: Cambia el nombre del archivo "ressme.md" 
 
 - `git checkout -- <file>`: Reconstruye solo el archivo especificado al ultimo commit.
 
-- `git branch`: Muestra todas las ramas.
+- `git branch`: Muestra las ramas locales.
+
+- `git branch -a`: Muestra todas las ramas locales + las ramas remotas.
 
 - `git branch -m master main`: Cambia el nombre de la rama "master" a "main".
 
@@ -415,6 +419,8 @@ Nota: En algunas versiones de GIT si es primera vez en hacer PULL aparecerá un 
 
 - `git config --global pull.ff only`: Fast Forward Only. (Cambiaremos esta config más adelante en la resolución de conflictos)
 
+- `git pull --all`: trae tambien las ramas creadas por otros usuarios o ramas creadas desde GitHub.
+
 ## VER repositorios remotos
 
 - `git remote -v`: Muestra una lista de todos los repositorios remotos enlazados a tu repositorio local.
@@ -495,3 +501,60 @@ elis@perezmusic ~/git-github-course (main) $ git lg
 
 Listo. 😱 🤯
 
+# FETCH
+
+- `git fetch`: Actualiza las referencias del remoto al local. PERO el HEAD del local sigue apuntuando al commit que tenía antes de hacer el FETCH.
+
+Ejemplo: En local se tienen 3 commits y en remoto se añadieron 2 commits mas. Al hacer el FETCH entonces en local muestra los 5 commits pero el HEAD sigue apuntando al commit 3 ya que solo actualizó las referencias.
+
+# FORK - Bifurcación.
+
+Un Fork es una división del codigo a una nueva rama del tipo repositorio. Cada repositorio creado con Fork es una rama más del repositorio original.
+
+# PULL REQUESTS
+
+Consiste en hacer una solicitud de unión a la rama 'main'. Se usa cuando no tenemos total acceso a un repositorio.
+
+1. FORK al repositorio que se desea contribuir para crear la rama (repositorio).
+
+2. CLONE a local para realizar los cambios deseados desde VSCODE: `git clone <url>`
+
+3. COMMITS and PUSH: Cuando terminemos de hacer los cambios guardamos, hacemos el commit y el PUSH para subir los cambios al FORK.
+
+4. CONTRIBUTE: En el repositorio de GitHub (el FORK) buscamos el boton "contribute" y luego hacemos el OPEN PULL REQUEST.
+
+5. COMPARING CHANGES: Verificar toda la info que se desea contribuir. En este punto si hay algo que nos falta, alguna linea de codigo que se nos olvidó, podemos ir a VSCODE, añadir los cambios faltantes, hacer el COMMIT, el PUSH y recargar la pagina del navegador de COMPARING CHANGES y veremos los nuevos commits añadidos.
+
+6. CREATE PULL REQUEST: Se pedirá que añadas el mensaje para ese Pull Request.
+
+7. Confirmar en CREATE PULL REQUEST.
+
+8. En la ultima pantalla puedes CANCELAR el PULL REQUEST o añadir otros mensajes adicionales para que el dueño del repositorio original los vea.
+
+# SOLICITUDES DE CAMBIO
+
+- `git checkout <hash> <file>`: Revierte los cambios de un file al commit especificado. (no borra el commit, solo revierte los cambios a ese unico archivo)
+
+- `git commit -am "modificaciones de solicitud realizadas"`: Crea un nuevo commit con los cambios.
+
+- `git push`
+
+# OBTENER LOS ULTIMOS CAMBIOS DEL REPOSITORIO ORIGINAL
+
+Podemos agregar tantos repositorios remotos queramos a nuestro local.
+
+- `git remote add upstream <url> main`: Enlaza tu repositorio local con el remoto.
+
+```bash
+elis@perezmusic ~/Dev/git-github-course (main) $ git remote -v
+origin  https://github.com/ElisPerez/git-github-course.git (fetch)
+origin  https://github.com/ElisPerez/git-github-course.git (push)
+upstream  https://github.com/ElisPerez/otro-repo-remote.git (fetch)
+upstream  https://github.com/ElisPerez/otro-repo-remote.git (push)
+```
+
+- Como es para solo lectura solo podremos usar el git FETCH y git PULL. No podrémos hacer git PUSH ya que no somos dueños de ese otro repositorio
+
+# Purgar las ramas basura (ramas eliminadas en remoto y que aun están en local)
+
+- `git remote prune origin`: Limpia las referencias locales.
