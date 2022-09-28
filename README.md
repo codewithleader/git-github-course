@@ -127,11 +127,11 @@ Ejemplo: `git mv ressme.md README.md`: Cambia el nombre del archivo "ressme.md" 
 
 - Crear el archivo `.gitignore` y agregar dentro los PATH y files que se desean ignorar. (Ver ejemplo en el archivo .gitignore)
 
-# RAMAS
+# RAMAS (Parte 1)
 
 - `git branch <name>`: Crea nueva rama.
 
-- `git checkout <name>`: Cambia a la rama especificada.
+- `git checkout <name>`: Cambia a una rama o tag especificada.
 
 - PREFERIDO: `git checkout -b <name>`: Crea nueva rama y nos cambia a ella (Dos pasos en uno 🤓)
 
@@ -204,6 +204,10 @@ Se debe crear tags del tipo "versiones semanticas".
 - `git tag -a v0.1.0 <hash> -m "Version 0.1.0 ready"`: Crea etiqueta a un commit especifico por medio del hash.
 
 `-a`: Annotated. `-m`: Message.
+
+## Subir los tags al repositorio remoto
+
+- `git push --tags`: Sube todos los tags al repositorio remoto.
 
 # STASH
 
@@ -558,3 +562,21 @@ upstream  https://github.com/ElisPerez/otro-repo-remote.git (push)
 # Purgar las ramas basura (ramas eliminadas en remoto y que aun están en local)
 
 - `git remote prune origin`: Limpia las referencias locales.
+
+# RAMAS (Parte 2)
+
+## Rama de Producción
+
+1. `git checkout -b <name>`: Crea una nueva rama.
+
+2. `git push --set-upstream origin <name>`: Sube al remoto la nueva rama creada. Truco: hacer el git PUSH para mostrar el mensaje de error y el comando sugerido.
+
+3. `git tag -a v1.0.0 -m "NombreRama v1.0.0 - Stable`: Crea el tag para esa rama.
+
+- "-a": Annotated.
+- "v1.0.0": El numero de version. Puede lucir como v1.0.0-alpha también.
+- "-m": Message.
+
+4. `git push --tags`: Sube el tag al remoto.
+
+5. En GitHub editar el tag para crear el RELEASE TAG.
