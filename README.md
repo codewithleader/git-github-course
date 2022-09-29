@@ -713,3 +713,43 @@ Estadisticas y actividad de tu repositorio.
 
 - Puedes ver cuantos usuarios le han hecho FORK.
 - Graficos de actividad (Commits, pull request...)
+
+# ORGANIZATIONS
+
+Una ORGANIZACIÓN es como un usuario de GitHub pero con un enfoque más empresarial.
+
+Para crear una organización debemos contar con una cuenta de usuario standard de GitHub con la cual administraremos la organización. (Tipo Facebook con Fans pages, que con tu cuenta normal administras la fans page, más o menos así va la cosa 😂)
+
+- Los repositorios publicos o privados que tengamos en nuestra cuenta standard de GitHub no se verán en nuestra organización a menos que así lo deseemos.
+
+- Podemos agregar a otros usuarios de GitHub a nuestra organización como colaboradores y asignar diferentes roles.
+
+## Roles de la organización
+
+- Propietarios: Los propietarios de las organizaciones tienen acceso administrativo integral en tu organización. Este rol debe limitarse a dos personas, por lo mucho, en tu organización.
+- Miembros: El rol no administrativo predeterminado para las personas en una organización es el miembro de la misma. Predeterminadamente, los miembros de las organizaciones tienen varios permisos, incluyendo la capacidad de crear repositorios y tableros de proyecto.
+- Otros roles:
+  - Moderadores.
+  - Gerentes de facturación.
+  - Administradores de seguridad.
+  - GitHub App administadores
+  - Colaboradores externos
+
+## TEAMS
+
+Dentro de una organización podemos crear teams para diferentes propósitos:
+
+- Desarrolladores Seniors.
+- Desarrolladores JR.
+- Testers
+- Otros...
+
+A estos equipos se les asignarán los repositorios de la organización.
+
+### Roles de repositorios para la organización
+
+- `Read`: Lectura. Recomendado para colaboradores sin código que desean ver o discutir su proyecto.
+- `Triage`: Evaluación. Recomendado para colaboradores que necesitan administrar proactivamente problemas y solicitudes de extracción sin acceso de escritura.
+- `Write`: Escritura. Recomendado para colaboradores que impulsan activamente su proyecto.
+- `Maintain`: Mantenimiento. Recomendado para gerentes de proyecto que necesitan administrar el repositorio sin acceso a acciones sensibles o destructivas.
+- `Admin`: Administrador. Recomendado para personas que necesitan acceso completo al proyecto, incluidas acciones sensibles y destructivas como administrar la seguridad o eliminar un repositorio.
